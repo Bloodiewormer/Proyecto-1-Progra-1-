@@ -1,5 +1,4 @@
-# Re-defining the text for the markdown file and saving it again
-readme_text = """
+"""
 # Veterinary Hospital Management System
 
 This project is a Veterinary Hospital Management System implemented in C++ for the course "Programación 1" at the University of Costa Rica. It automates the management of veterinary hospital resources such as doctors, specialties, owners, pets, and appointments.
