@@ -1,7 +1,7 @@
 
 # Veterinary Hospital Management System
 
-This project is a Veterinary Hospital Management System implemented in C++ for the course "Programación 1" at the "Universidad Nacional" de Costa Rica. It automates the management of veterinary hospital resources such as doctors, specialties, owners, pets, and appointments.
+This project is a Veterinary Hospital Management System implemented in C++ for the course "Programación 1" at the "Universidad Nacional de Costa Rica". It automates the management of veterinary hospital resources such as doctors, specialties, owners, pets, and appointments.
 
 ## Table of Contents
 
