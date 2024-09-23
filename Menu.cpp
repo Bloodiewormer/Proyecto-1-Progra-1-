@@ -339,18 +339,25 @@ void Menu::ventanaMostrarCitasDueno(Hospital* hos)
 		std::cout << "Ingrese el nombre de la mascota: ";
 		std::cin >> nombreMascota;
 		Doctor** doc = hos->getDoctores();
-		std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/ " << std::endl;
-		std::cout << "Citas de la mascota: " << nombreMascota << std::endl;
-		for (int i = 0; i < hos->getCantidaddeDoc(); i++){
-			for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 12; k++) {
-					if (doc[i]->getAgenda() != nullptr && doc[i]->getAgenda()->obtenerCita(j, k) != nullptr) {
-						if (doc[i]->getAgenda()->obtenerCita(j, k)->getMascota()->getNombre() == nombreMascota) {
-							std::cout << "Dia: " << intToDay(i) << " Hora: " << j + 8 << std::endl;
-							std::cout << "Doctor: " << doc[i]->getNombre() << std::endl;
-							std::cout << "Duenno: " << doc[i]->getAgenda()->obtenerCita(j, k)->getNombreDueño() << std::endl;
-							std::cout << "Mascota:" << doc[i]->getAgenda()->obtenerCita(j, k)->getMascota()->getNombre() << std::endl;
-							std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/ " << std::endl;
+		Mascota* mascota = dueño->getMascota(nombreMascota);
+		if (mascota == nullptr) {
+			std::cout << "No se encontro ninguna mascota con ese nombre" << std::endl;
+			return;
+		}
+		else{
+			std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/ " << std::endl;
+			std::cout << "Citas de la mascota: " << nombreMascota << std::endl;
+			for (int i = 0; i < hos->getCantidaddeDoc(); i++){
+				for (int j = 0; j < 6; j++) {
+					for (int k = 0; k < 12; k++) {
+						if (doc[i]->getAgenda() != nullptr && doc[i]->getAgenda()->obtenerCita(j, k) != nullptr) {
+							if (doc[i]->getAgenda()->obtenerCita(j, k)->getMascota()->getNombre() == nombreMascota) {
+								std::cout << "Dia: " << intToDay(i) << " Hora: " << j + 8 << std::endl;
+								std::cout << "Doctor: " << doc[i]->getNombre() << std::endl;
+								std::cout << "Duenno: " << doc[i]->getAgenda()->obtenerCita(j, k)->getNombreDueño() << std::endl;
+								std::cout << "Mascota:" << doc[i]->getAgenda()->obtenerCita(j, k)->getMascota()->getNombre() << std::endl;
+								std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/ " << std::endl;
+							}
 						}
 					}
 				}
