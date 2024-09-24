@@ -97,21 +97,24 @@ void Menu::ventanaControlCitas(Hospital* hos)
 	case 1:
 		// Sacar Cita
 		ventanaSacarCita(hos);
+		system("pause");
 		break;
 	case 2:
 		// Cancelar Cita
 		ventanaCancelarCita(hos);
+		system("pause");
 		break;
 	case 3:
 		// Mostrar Calendario de Citas por Doctor
 		ventanaMostrarCalendarioCitasDoctor(hos);
+		system("pause");
 		break;
 	case 4:
 		// Mostrar Citas por Dueño
 		ventanaMostrarCitasDueno(hos);
+		system("pause");
 		break;
 	}
-	system("pause");
 	system("cls");
 	} while (opcion != 0);
 }
@@ -134,21 +137,24 @@ void Menu::ventanaBusquedas(Hospital*hos)
 		case 1:
 			// Mostrar Listado de Especialidades
 			ventanaMostrarEspecialidades(hos);
+			system("pause");
 			break;
 		case 2:
 			// Mostrar Listado de Doctores por Especialidad
 			ventanaMostrarDoctoresPorEspecialidad(hos);
+			system("pause");
 			break;
 		case 3:
 			// Mostrar Dueños con sus Mascotas
 			ventanaMostrarDuenosConMascotas(hos);
+			system("pause");
 			break;
 		case 4:
 			// Mostrar Pacientes por Doctor
 			ventanaMostrarPacientesPorDoctor(hos);
+			system("pause");
 			break;
-		};
-		system("pause");
+		}
 		system("cls");
 	} while (opcion != 0);
 }
@@ -160,9 +166,11 @@ void Menu::ventanaIngresarEspecialidad(Hospital* hos)
 	std::cin >> nombre;
 	Especialidad* especialidad = new Especialidad(nombre);
 	if (hos->agregarEspecialidad(nombre) == true){
+		system("cls");
 		std::cout << "Especialidad agregada con exito" << std::endl;
 	}
 	else{
+		system("cls");
 		std::cout << "No se pudo agregar la especialidad" << std::endl;
 	}
 }
@@ -179,9 +187,11 @@ void Menu::ventanaIngresarDoctor(Hospital* hos )
 	std::cout << "Ingrese la especialidad del doctor: ";
 	std::cin >> especialidad;
 	if (hos->agregarDoctor(nombre, ID, especialidad) == true){
+		system("cls");
 		std::cout << "Doctor agregado con exito" << std::endl;
 	}
 	else{
+		system("cls");
 		std::cout << "No se pudo agregar el doctor" << std::endl;
 	}
 }
@@ -190,15 +200,17 @@ void Menu::ventanaIngresarDueno(Hospital* hos)
 {
 	std::string nombre;
 	std::string ID;
-	std::cout << "Ingrese el nombre del dueño: ";
+	std::cout << "Ingrese el nombre del duenno: ";
 	std::cin >> nombre;
-	std::cout << "Ingrese el ID del dueño: ";
+	std::cout << "Ingrese el ID del duenno: ";
 	std::cin >> ID;
 	if (hos->agregarDueño(nombre, ID) == true){
-		std::cout << "Dueño agregado con exito" << std::endl;
+		system("cls");
+		std::cout << "Duenno agregado con exito" << std::endl;
 	}
 	else{
-		std::cout << "No se pudo agregar el dueño" << std::endl;
+		system("cls");
+		std::cout << "No se pudo agregar el duenno" << std::endl;
 	}
 }
 
@@ -220,9 +232,11 @@ void Menu::ventanaIngresarMascota(Hospital* hos)
 	std::cout << "Ingrese el ID del dueño: ";
 	std::cin >> dueñoID;
 	if (hos->agregarMascota(nombre, especie, raza, edad, dueñoID) == true){
+		system("cls");
 		std::cout << "Mascota agregada con exito" << std::endl;
 	}
 	else{
+		system("cls");
 		std::cout << "No se pudo agregar la mascota" << std::endl;
 	}
 }
@@ -245,21 +259,31 @@ void Menu::ventanaSacarCita(Hospital* hos)
 			std::cin >> doctorID;
 			Doctor* doctor = hos->getDoctor(doctorID);
 			if (doctor != nullptr){
-				doctor->getAgenda()->toString();
+				system("cls");
+				cout<<doctor->getAgenda()->toString();
 				int dia;
 				int hora;
-				std::cout << "Ingrese el dia de la cita: 0 - Lunes, 1 - Martes, 2 - Miercoles, 3 - Jueves, 4 - Viernes, 5 - Sabado: " << std::endl;
+				std::cout << "Ingrese el dia de la cita: 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sabado: " << std::endl;
 				std::cin >> dia;
 				std::cout << "Ingrese la hora de la cita: ";
 				std::cin >> hora;
 				Cita* cita = new Cita(mascota, dueño);
-				doctor->agendarCita(cita, dia, hora);
+				if (doctor->agendarCita(cita, dia, hora) == true) {
+					system("cls");
+					std::cout << "Cita agendada con exito" << std::endl;
+				}
+				else {
+					system("cls");
+					std::cout << "No se pudo agendar la cita" << std::endl;
+				}
 			}
 			else{
+				system("cls");
 				std::cout << "No se encontro ningun doctor con ese ID" << std::endl;
 			}
 		}
 		else{
+			system("cls");
 			std::cout << "No se encontro ninguna mascota con ese nombre" << std::endl;
 		}
 	}
@@ -286,10 +310,12 @@ void Menu::ventanaCancelarCita(Hospital* hos)
 				for (int j = 0; j < 12; j++) {
 					if (doctor->getAgenda()->obtenerCita(i, j) != nullptr) {
 						if (doctor->getAgenda()->obtenerCita(i, j)->getNombreDueño() == dueño->getNombre()) {
+							std::cout << "======================================" << std::endl;
 							std::cout << "Dia: " << intToDay(i) << " Hora: " << j + 8 << std::endl;
 							std::cout << "Doctor: " << doctor->getNombre() << std::endl;
 							std::cout << "Duenno: " << doctor->getAgenda()->obtenerCita(i, j)->getNombreDueño() << std::endl;
 							std::cout << "Mascota:" << doctor->getAgenda()->obtenerCita(i, j)->getMascota()->getNombre() << std::endl;
+							std::cout << "======================================" << std::endl;
 						}
 					}
 				}
@@ -300,7 +326,14 @@ void Menu::ventanaCancelarCita(Hospital* hos)
 			std::cin >> dia;
 			std::cout << "Ingrese la hora de la cita: ";
 			std::cin >> hora;
-			doctor->cancelarCita(dia-1, hora-8);
+			if (doctor->cancelarCita(dia, hora) == true) {
+				system("cls");
+				std::cout << "Cita cancelada con exito" << std::endl;
+			}
+			else {
+				system("cls");
+				std::cout << "No se pudo cancelar la cita" << std::endl;
+			}
 		}
 		else{
 			std::cout << "No se encontro ningun doctor con ese ID" << std::endl;
@@ -341,6 +374,7 @@ void Menu::ventanaMostrarCalendarioCitasDoctor(Hospital* hos)
 
 void Menu::ventanaMostrarCitasDueno(Hospital* hos)
 {
+	int cont=0;
 	std::cout << "Ingrese el ID del dueño: ";
 	std::string ID;
 	std::cin >> ID;
@@ -351,6 +385,10 @@ void Menu::ventanaMostrarCitasDueno(Hospital* hos)
 		std::cout << "Ingrese el nombre de la mascota: ";
 		std::cin >> nombreMascota;
 		Doctor** doc = hos->getDoctores();
+		if (doc[0] == nullptr) {
+			std::cout << "No hay doctores en el hospital" << std::endl;
+			return;
+		}
 		Mascota* mascota = dueño->getMascota(nombreMascota);
 		if (mascota == nullptr) {
 			std::cout << "No se encontro ninguna mascota con ese nombre" << std::endl;
@@ -359,12 +397,13 @@ void Menu::ventanaMostrarCitasDueno(Hospital* hos)
 		else{
 			std::cout << "/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/ " << std::endl;
 			std::cout << "Citas de la mascota: " << nombreMascota << std::endl;
-			for (int i = 0; i < hos->getCantidaddeDoc(); i++){
-				for (int j = 0; j < 6; j++) {
-					for (int k = 0; k < 12; k++) {
+			for (int i = 0; i < hos->getCantidaddeDoc(); i++){//Recorre todos los doctores
+				for (int j = 0; j < 6; j++) {//Recorre los dias
+					for (int k = 0; k < 12; k++) {//Recorre las horas
 						if (doc[i]->getAgenda() != nullptr && doc[i]->getAgenda()->obtenerCita(j, k) != nullptr) {
 							if (doc[i]->getAgenda()->obtenerCita(j, k)->getMascota()->getNombre() == nombreMascota) {
-								std::cout << "Dia: " << intToDay(i) << " Hora: " << j + 8 << std::endl;
+								cont++;
+								std::cout << "Dia: " << intToDay(j) << " Hora: " << k + 8 <<":00" << std::endl;
 								std::cout << "Doctor: " << doc[i]->getNombre() << std::endl;
 								std::cout << "Duenno: " << doc[i]->getAgenda()->obtenerCita(j, k)->getNombreDueño() << std::endl;
 								std::cout << "Mascota:" << doc[i]->getAgenda()->obtenerCita(j, k)->getMascota()->getNombre() << std::endl;
@@ -373,6 +412,9 @@ void Menu::ventanaMostrarCitasDueno(Hospital* hos)
 						}
 					}
 				}
+			}
+			if (cont == 0) {
+				std::cout << "No se encontro ninguna cita para la mascota" << std::endl;
 			}
 		}
 	}
@@ -383,7 +425,9 @@ void Menu::ventanaMostrarCitasDueno(Hospital* hos)
 
 void Menu::ventanaMostrarEspecialidades(Hospital* hos)
 {
+	cout << "======================" << std::endl;
 	cout<<hos->mostrarEspecialidades();
+	cout << "======================" << std::endl;
 }
 
 void Menu::ventanaMostrarDoctoresPorEspecialidad(Hospital* hos)
@@ -391,18 +435,29 @@ void Menu::ventanaMostrarDoctoresPorEspecialidad(Hospital* hos)
 	std::string especialidad;
 	std::cout << "Ingrese la especialidad: ";
 	std::cin >> especialidad;
+	system("cls");
 	Especialidad* especialidadObj = hos->getEspecialidad(especialidad);
 	int count;
 	Doctor** doctoresPE = hos->getDoctoresPE(especialidadObj, count);
-	if (count > 0){
-		for (int i = 0; i < count; i++){
-			cout << doctoresPE[i]->toString() << endl;
+	if (especialidadObj == nullptr) {
+		std::cout << "No se encontro ninguna especialidad con ese nombre" << std::endl;
+		return;
+	}
+	else {
+		if (count > 0) {
+			std::cout << "Doctores con la especialidad: " << especialidad << std::endl;
+			for (int i = 0; i < count; i++) {
+				std::cout << "--------------------------------" << std::endl;
+				cout << doctoresPE[i]->toString() << endl;
+				std::cout << "--------------------------------" << std::endl;
+			}
+		}
+		else {
+			std::cout << "No se encontro ningun doctor con esa especialidad" << std::endl;
 		}
 	}
-	else{
-		std::cout << "No se encontro ningun doctor con esa especialidad" << std::endl;
-	}
 	delete[] doctoresPE; // borrar el arreglo de doctores
+
 }
 
 void Menu::ventanaMostrarDuenosConMascotas(Hospital* hos)
@@ -416,6 +471,7 @@ void Menu::ventanaMostrarPacientesPorDoctor(Hospital* hos)
 	std::string ID;
 	std::cout << "Ingrese el ID del doctor: ";
 	std::cin >> ID;
+	system("cls");
 	Doctor* doctor = hos->getDoctor(ID);
 	if (doctor != nullptr){
 		std::cout << "Pacientes del doctor: " << doctor->getNombre() << std::endl;

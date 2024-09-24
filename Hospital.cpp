@@ -47,8 +47,9 @@ bool Hospital::agregarDueño(std::string nombre, std::string ID)
 {
 	if (dueños->getDueño(ID) == nullptr){
 		Dueño* dueño = new Dueño(nombre, ID);
-		dueños->agregarDueño(dueño);
-		return true;
+		if (dueños->agregarDueño(dueño)) {
+			return true;
+		}
 	}
 	return false;
 }

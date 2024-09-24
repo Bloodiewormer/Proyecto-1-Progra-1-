@@ -38,7 +38,7 @@ Dueño* DueñoContainer::getDueño(std::string ID)
 std::string DueñoContainer::toString() const 
 {
 	std::stringstream ss;
-	ss << "Dueños: " << std::endl;
+	ss << "Duennos: " << std::endl;
 	ss << "------------------------------------" << std::endl;
 	for (int i = 0; i < this->cantidad; i++){
 		ss << "------------------------------------" << std::endl;

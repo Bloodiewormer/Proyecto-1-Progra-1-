@@ -9,6 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\Contenedores">
+      <UniqueIdentifier>{59eb5315-e8f0-4bac-a5e4-73e6bcc931fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Contenedores">
+      <UniqueIdentifier>{723d70d2-ce7b-49cb-b54f-abfb28c5c27c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -23,25 +29,13 @@
     <ClCompile Include="Especialidad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EspecialidadContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Doctor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DoctorContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dueño.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DueñoContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mascota.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MascotaContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Agenda.cpp">
@@ -49,6 +43,18 @@
     </ClCompile>
     <ClCompile Include="Cita.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoctorContainer.cpp">
+      <Filter>Source Files\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="EspecialidadContainer.cpp">
+      <Filter>Source Files\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="DueñoContainer.cpp">
+      <Filter>Source Files\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="MascotaContainer.cpp">
+      <Filter>Source Files\Contenedores</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,25 +67,13 @@
     <ClInclude Include="Especialidad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EspecialidadContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Doctor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DoctorContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dueño.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DueñoContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Mascota.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MascotaContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Agenda.h">
@@ -87,6 +81,18 @@
     </ClInclude>
     <ClInclude Include="Cita.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DoctorContainer.h">
+      <Filter>Header Files\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="DueñoContainer.h">
+      <Filter>Header Files\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="EspecialidadContainer.h">
+      <Filter>Header Files\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="MascotaContainer.h">
+      <Filter>Header Files\Contenedores</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
