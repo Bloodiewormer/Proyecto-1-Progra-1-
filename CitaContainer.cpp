@@ -15,7 +15,7 @@ CitaContainer::~CitaContainer() {
     delete[] citas;
 }
 
-bool CitaContainer::agregarCita(Cita* cita, int index) {
+bool CitaContainer::agregarCita(Cita* cita, int index) {//index = dia * horas + hora ejem: 0*12 + 0 = 0
     if (index >= 0 && index < capacidad) {
         if (citas[index] == nullptr) {
             citas[index] = cita;

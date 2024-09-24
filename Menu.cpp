@@ -268,7 +268,7 @@ void Menu::ventanaSacarCita(Hospital* hos)
 				std::cout << "Ingrese la hora de la cita: ";
 				std::cin >> hora;
 				Cita* cita = new Cita(mascota, dueño);
-				if (doctor->agendarCita(cita, dia, hora) == true) {
+				if (doctor->agendarCita(cita, dia-1, hora) == true) {
 					system("cls");
 					std::cout << "Cita agendada con exito" << std::endl;
 				}
@@ -326,7 +326,7 @@ void Menu::ventanaCancelarCita(Hospital* hos)
 			std::cin >> dia;
 			std::cout << "Ingrese la hora de la cita: ";
 			std::cin >> hora;
-			if (doctor->cancelarCita(dia, hora) == true) {
+			if (doctor->cancelarCita(dia-1, hora) == true) {
 				system("cls");
 				std::cout << "Cita cancelada con exito" << std::endl;
 			}

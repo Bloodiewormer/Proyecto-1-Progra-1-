@@ -5,8 +5,8 @@
 class Agenda {
 private:
     CitaContainer* citas;
-    int dias;
-    int horas;
+	int dias;//6
+	int horas;//12
 public:
     Agenda();
     ~Agenda();

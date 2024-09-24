@@ -15,9 +15,7 @@ Doctor::~Doctor()
 
 bool Doctor::agendarCita(Cita* cita,int dia ,int hora)
 {
-	int di = dia - 1;
-	int hr = hora - 8;
-	if (this->agenda->agendarCita(cita, di, hr) == true){
+	if (this->agenda->agendarCita(cita, dia, hora) == true){
 		return true;
 	}
 	else{
@@ -27,9 +25,7 @@ bool Doctor::agendarCita(Cita* cita,int dia ,int hora)
 
 bool Doctor::cancelarCita(int dia, int hora)
 {
-	int di = dia - 1;
-	int hr = hora - 8;
-	if (this->agenda->cancelarCita(di, hr) == true){
+	if (this->agenda->cancelarCita(dia, hora) == true){
 		return true;
 	}
 	else{
