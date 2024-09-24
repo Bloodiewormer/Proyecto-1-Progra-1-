@@ -1,16 +1,17 @@
 #pragma once
 #include <iostream>
-#include"Cita.h"
+#include "CitaContainer.h"
+
 class Agenda {
 private:
-	Cita*** citas;//Libro Pagina 95: Matriz de punteros a objetos
-	int dias;// filas
-	int horas;// columnas
+    CitaContainer* citas;
+    int dias;
+    int horas;
 public:
-	Agenda();
-	~Agenda();
-	bool agendarCita(Cita* cita, int dia, int hora);//A
-	bool cancelarCita(int dia, int hora);
-	Cita* obtenerCita(int dia, int hora);
-	std::string toString()const;
+    Agenda();
+    ~Agenda();
+    bool agendarCita(Cita* cita, int dia, int hora);
+    bool cancelarCita(int dia, int hora);
+    Cita* obtenerCita(int dia, int hora);
+    std::string toString() const;
 };

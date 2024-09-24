@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Agenda.cpp" />
     <ClCompile Include="Cita.cpp" />
+    <ClCompile Include="CitaContainer.cpp" />
     <ClCompile Include="Doctor.cpp" />
     <ClCompile Include="DoctorContainer.cpp" />
     <ClCompile Include="Dueño.cpp" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Agenda.h" />
     <ClInclude Include="Cita.h" />
+    <ClInclude Include="CitaContainer.h" />
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="DoctorContainer.h" />
     <ClInclude Include="Dueño.h" />

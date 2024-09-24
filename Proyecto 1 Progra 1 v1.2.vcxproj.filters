@@ -38,9 +38,6 @@
     <ClCompile Include="Mascota.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Agenda.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Cita.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -54,6 +51,12 @@
       <Filter>Source Files\Contenedores</Filter>
     </ClCompile>
     <ClCompile Include="MascotaContainer.cpp">
+      <Filter>Source Files\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="CitaContainer.cpp">
+      <Filter>Source Files\Contenedores</Filter>
+    </ClCompile>
+    <ClCompile Include="Agenda.cpp">
       <Filter>Source Files\Contenedores</Filter>
     </ClCompile>
   </ItemGroup>
@@ -76,9 +79,6 @@
     <ClInclude Include="Mascota.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agenda.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Cita.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -92,6 +92,12 @@
       <Filter>Header Files\Contenedores</Filter>
     </ClInclude>
     <ClInclude Include="MascotaContainer.h">
+      <Filter>Header Files\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="CitaContainer.h">
+      <Filter>Header Files\Contenedores</Filter>
+    </ClInclude>
+    <ClInclude Include="Agenda.h">
       <Filter>Header Files\Contenedores</Filter>
     </ClInclude>
   </ItemGroup>
