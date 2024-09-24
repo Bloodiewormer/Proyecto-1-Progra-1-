@@ -21,6 +21,7 @@ void Menu::inicioPrograma(Hospital* hos)
 		}
 	} while (opcion != 0);
 	cout << "Programa finalizado" << endl;
+	system("pause");
 }
 
 int Menu::ventanaMenuPrincipal() {
@@ -273,21 +274,33 @@ void Menu::ventanaCancelarCita(Hospital* hos)
 	std::cout << "Ingrese el ID del dueño: ";
 	std::cin >> dueñoID;
 	Dueño* dueño = hos->getDueño(dueñoID);
+
 	if (dueño != nullptr){
-		std::cout << dueño->toString();
 		std::string doctorID;
 		std::cout << "Ingrese el ID del doctor: ";
 		std::cin >> doctorID;
 		Doctor* doctor = hos->getDoctor(doctorID);
-		if (doctor != nullptr){
-			doctor->getAgenda()->toString();
+		if (doctor != nullptr) {
+			//encontrar las citas del doctor con el dueño
+			for (int i = 0; i < 6; i++) {
+				for (int j = 0; j < 12; j++) {
+					if (doctor->getAgenda()->obtenerCita(i, j) != nullptr) {
+						if (doctor->getAgenda()->obtenerCita(i, j)->getNombreDueño() == dueño->getNombre()) {
+							std::cout << "Dia: " << intToDay(i) << " Hora: " << j + 8 << std::endl;
+							std::cout << "Doctor: " << doctor->getNombre() << std::endl;
+							std::cout << "Duenno: " << doctor->getAgenda()->obtenerCita(i, j)->getNombreDueño() << std::endl;
+							std::cout << "Mascota:" << doctor->getAgenda()->obtenerCita(i, j)->getMascota()->getNombre() << std::endl;
+						}
+					}
+				}
+			}
 			int dia;
 			int hora;
-			std::cout << "Ingrese el dia de la cita: 0 - Lunes, 1 - Martes, 2 - Miercoles, 3 - Jueves, 4 - Viernes, 5 - Sabado: " << std::endl;
+			std::cout << "Ingrese el dia de la cita: 1 - Lunes, 2 - Martes, 3 - Miercoles, 4 - Jueves, 5 - Viernes, 6 - Sabado: " << std::endl;
 			std::cin >> dia;
 			std::cout << "Ingrese la hora de la cita: ";
 			std::cin >> hora;
-			doctor->cancelarCita(dia, hora);
+			doctor->cancelarCita(dia-1, hora-8);
 		}
 		else{
 			std::cout << "No se encontro ningun doctor con ese ID" << std::endl;
@@ -295,8 +308,7 @@ void Menu::ventanaCancelarCita(Hospital* hos)
 	}
 	else{
 		std::cout << "No se encontro ningun dueño con ese ID" << std::endl;
-	}
-
+	}	
 }
 
 void Menu::ventanaMostrarCalendarioCitasDoctor(Hospital* hos)
