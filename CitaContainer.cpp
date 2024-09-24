@@ -45,15 +45,15 @@ Cita* CitaContainer::obtenerCita(int index) {
     return nullptr;
 }
 
-std::string CitaContainer::toString(int dias, int horas) const {
+std::string CitaContainer::toString() const {
     std::stringstream result;
     result << "Hora   Lunes       Martes      Miercoles   Jueves      Viernes     Sabado \n";
     result << "--------------------------------------------------------------------------\n";
     for (int hora = 8; hora <= 19; ++hora) {
         result << hora << ":00";
         if (hora < 10) result << " ";  // To align single-digit hours
-        for (int dia = 0; dia < dias; ++dia) {
-            if (citas[dia * horas + (hora - 8)] == nullptr) {
+        for (int dia = 0; dia < 6; ++dia) {
+            if (citas[dia * 12 + (hora - 8)] == nullptr) {
                 result << "  Vacante   ";
             }
             else {
