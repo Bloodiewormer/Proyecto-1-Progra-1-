@@ -6,7 +6,7 @@ Doctor::Doctor(std::string nombre, std::string ID, Especialidad* especialidad)
 	this->ID = ID;
 	this->especialidad = especialidad;
 	//create and initialize the agenda
-	this->agenda = new Agenda();
+	this->agenda = new Agenda(72);
 }
 
 Doctor::~Doctor()
