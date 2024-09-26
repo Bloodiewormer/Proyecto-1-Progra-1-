@@ -4,23 +4,34 @@
 
 class Agenda {
 private:
-    Cita** citas;
-    int cantidad;
-    int capacidad;
-   // CitaContainer* citas;
+    Cita** citas; // Vector de punteros a Cita
+    int cantidad; // Número de citas en la agenda
+    int capacidad; // Capacidad de la agenda
+
 public:
+    // Constructor que inicializa la agenda con una capacidad dada
     Agenda(int capacidad);
+
+    // Destructor que libera la memoria utilizada por la agenda
     ~Agenda();
+
+    // Método para agendar una cita en un día y hora específicos
     bool agendarCita(Cita* cita, int dia, int hora);
+
+    // Método para cancelar una cita en un día y hora específicos
     bool cancelarCita(int dia, int hora);
+
+    // Método para obtener una cita en una posición específica
     Cita* obtenerCita(int dia, int hora);
+
+    // Método que retorna una representación en string de la agenda
     std::string toString() const;
 };
 
-//we use Index to represent the position of the Cita in the array
-//index = dia * 12 + hora  //the 12 is the number of hours in a day
+// Usamos Index para representar la posición de la Cita en el array
+// index = dia * 12 + hora  // El 12 es el número de horas en un día
 /*
- hr = horas - 8     index = dia * horas + hora  
+ hr = horas - 8     index = dia * 12 + hr
 
 +----+--------+-----+-----+-----+-----+-----+-----+-----+
 | hr | Horas  |  0  |  1  |  2  |  3  |  4  |  5  |     |

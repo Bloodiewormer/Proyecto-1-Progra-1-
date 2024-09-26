@@ -7,30 +7,34 @@
 class Hospital
 {
 private:
-	EspecialidadContainer* especialidades;
-	DoctorContainer* doctores;
-	DueñoContainer* dueños;
+    EspecialidadContainer* especialidades; // Contenedor de especialidades
+    DoctorContainer* doctores; // Contenedor de doctores
+    DueñoContainer* dueños; // Contenedor de dueños
+
 public:
-	Hospital();
-	~Hospital();
-	void datosPrueba();
-	//Metodos Agregar
-	bool agregarEspecialidad(std::string name);//nombre
-	bool agregarDoctor(std::string nom, std::string ID, std::string esp);//nombre, ID, especialidad
-	bool agregarDueño(std::string nombre, std::string ID);//nombre, ID
-	bool agregarMascota(std::string nombre, std::string especie, std::string raza, int edad, std::string duennoID);//nombre, especie, raza, edad, dueñoID
-	//Metodos mostrar
-	std::string mostrarEspecialidades();
-	std::string mostrarDueñosCM();//CM /Con Mascotas
-	//getters
-	Especialidad* getEspecialidad(std::string name);
-	Doctor* getDoctor(std::string ID);
-	Dueño* getDueño(std::string ID);
-	int getCantidaddeDoc() const;
+    Hospital(); // Constructor
+    ~Hospital(); // Destructor
 
-	//Metodos de vec 
-	Doctor** getDoctoresPE(Especialidad* especialidad, int& cont);//PE / Por Especialidad //cont es la cantidad de doctores, referencia para que se modifique en la funcion
-	Doctor** getDoctores();//Todos los doctores
+    // Carga datos de prueba en el hospital
+    void datosPrueba();
 
-	
+    // Métodos para agregar entidades al hospital
+    bool agregarEspecialidad(std::string name); // Agrega una especialidad
+    bool agregarDoctor(std::string nom, std::string ID, std::string esp); // Agrega un doctor
+    bool agregarDueño(std::string nombre, std::string ID); // Agrega un dueño
+    bool agregarMascota(std::string nombre, std::string especie, std::string raza, int edad, std::string duennoID); // Agrega una mascota
+
+    // Métodos para mostrar información del hospital
+    std::string mostrarEspecialidades(); // Muestra todas las especialidades
+    std::string mostrarDueñosCM(); // Muestra dueños con mascotas
+
+    // Getters
+    Especialidad* getEspecialidad(std::string name); // Obtiene una especialidad por su nombre
+    Doctor* getDoctor(std::string ID); // Obtiene un doctor por su ID
+    Dueño* getDueño(std::string ID); // Obtiene un dueño por su ID
+    int getCantidaddeDoc() const; // Obtiene la cantidad de doctores
+
+    // Métodos para obtener vectores de doctores
+    Doctor** getDoctoresPE(Especialidad* especialidad, int& cont); // Obtiene doctores por especialidad
+    Doctor** getDoctores(); // Obtiene todos los doctores
 };

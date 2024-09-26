@@ -1,5 +1,5 @@
 #include "MascotaContainer.h"
-
+// Constructor de la clase MascotaContainer
 MascotaContainer::MascotaContainer()
 {
 	cantidad = 0;
@@ -9,7 +9,7 @@ MascotaContainer::MascotaContainer()
 		mascotas[i] = nullptr;
 	}
 }
-
+// Destructor de la clase MascotaContainer
 MascotaContainer::~MascotaContainer()
 {
 	for (int i = 0; i < cantidad; i++){
@@ -17,12 +17,12 @@ MascotaContainer::~MascotaContainer()
 	}
 	delete[] mascotas;
 }
-
+// Obtiene la cantidad de mascotas
 int MascotaContainer::getCantidad() const
 {
 	return cantidad;
 }
-
+// Agrega una mascota al contenedor
 bool MascotaContainer::agregarMascota(Mascota* mascota)
 {
 	if (cantidad < capacidad){
@@ -31,7 +31,7 @@ bool MascotaContainer::agregarMascota(Mascota* mascota)
 	}
 	return false;
 }
-
+// Obtiene una mascota por su nombre
 Mascota* MascotaContainer::getMascota(std::string name)
 {
 	for (int i = 0; i < cantidad; i++){
@@ -41,13 +41,13 @@ Mascota* MascotaContainer::getMascota(std::string name)
 	}
 	return nullptr;
 }
-
+// Retorna una representación en string del contenedor
 std::string MascotaContainer::toString()
 {
 	std::stringstream ss;
 	ss << "------------------------------------" << std::endl;
 	ss << "Mascotas: " << std::endl;
-	if (mascotas[0] == nullptr) {
+	if (mascotas[0] == nullptr) {//Verifica si hay mascotas 
 		ss << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 		ss << "No tiene mascotas" << std::endl;
 	}

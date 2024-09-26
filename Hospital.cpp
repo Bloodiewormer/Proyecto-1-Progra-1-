@@ -1,32 +1,33 @@
 #include "Hospital.h"
-
+//Constructor
 Hospital::Hospital()
 {
 	this->especialidades = new EspecialidadContainer();
 	this->doctores = new DoctorContainer();
 	this->dueños = new DueñoContainer();
 }
-
+//Destructor
 Hospital::~Hospital()
 {
 	delete this->especialidades;
 	delete this->doctores;
 	delete this->dueños;
 }
-
+//Metodos
 bool Hospital::agregarEspecialidad(std::string name){
 	Especialidad* especialidad = new Especialidad(name);
-	if (especialidades->agregarEspecialidad(especialidad) == true){
+	if (especialidades->agregarEspecialidad(especialidad) == true) {//Comprueba si la especialidad se agrego
 		return true;
 	}
 	return false;
 }
-
+//Metodos para mostrar informacion
 std::string Hospital::mostrarEspecialidades()
 {
 	return especialidades->toString();
 }
-
+//Metodos para agregar entidades al hospital
+//Agregar doctor
 bool Hospital::agregarDoctor(std::string nom,std::string ID,std::string esp)
 {
 	Especialidad* especialidadObj = especialidades->getEspecialidad(esp);
@@ -42,7 +43,7 @@ bool Hospital::agregarDoctor(std::string nom,std::string ID,std::string esp)
 	}
 }
 
-
+//Agregar dueño
 bool Hospital::agregarDueño(std::string nombre, std::string ID)
 {
 	if (dueños->getDueño(ID) == nullptr){
@@ -53,18 +54,18 @@ bool Hospital::agregarDueño(std::string nombre, std::string ID)
 	}
 	return false;
 }
-
+//Mostrar dueños con mascotas
 std::string Hospital::mostrarDueñosCM() // CM /Con Mascotas
 {
 	return dueños->toString();
 }
-
+//Agregar mascota
 bool Hospital::agregarMascota(std::string nombre, std::string especie, std::string raza, int edad,std::string DuennoId)
 {
 	Dueño* dueño = dueños->getDueño(DuennoId);
 	if (dueño != nullptr){
 		Mascota* mascota = new Mascota(nombre, especie, raza, edad);
-		if (dueño->agregarMascota(mascota)){
+		if (dueño->agregarMascota(mascota)) {//Agrega la mascota al dueño
 			return true;
 		}
 		return false;
@@ -73,7 +74,7 @@ bool Hospital::agregarMascota(std::string nombre, std::string especie, std::stri
 		return false;	
 	}
 }
-
+//Getters
 Especialidad* Hospital::getEspecialidad(std::string name)
 {
 	if (especialidades->getEspecialidad(name) != nullptr){
@@ -115,6 +116,8 @@ Dueño* Hospital::getDueño(std::string ID)
 }
 
 //Metodos de prueba
+
+//Metodo para cargar datos de prueba
 void Hospital::datosPrueba()//Eliminar antes de entregar
 {
 	//datos quemados

@@ -6,14 +6,16 @@
 class MascotaContainer
 {
 private:
-	Mascota** mascotas;
-	int cantidad;
-	int capacidad;
+    Mascota** mascotas; // Array de punteros a Mascota
+    int cantidad; // Número de mascotas en el contenedor
+    int capacidad; // Capacidad del contenedor
+
 public:
-	MascotaContainer();
-	~MascotaContainer();
-	int getCantidad()const;
-	bool agregarMascota(Mascota* mascota);
-	Mascota* getMascota(std::string name);
-	std::string toString();
+    MascotaContainer(); // Constructor
+    ~MascotaContainer(); // Destructor
+
+    int getCantidad() const; // Obtiene la cantidad de mascotas
+    bool agregarMascota(Mascota* mascota); // Agrega una mascota al contenedor
+    Mascota* getMascota(std::string name); // Obtiene una mascota por su nombre
+    std::string toString(); // Retorna una representación en string del contenedor
 };

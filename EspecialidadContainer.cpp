@@ -1,18 +1,21 @@
 #include "EspecialidadContainer.h"
 
+
+// Constructor de la clase EspecialidadContainer
 EspecialidadContainer::EspecialidadContainer()
 {
-	this->tam = 10;
+	this->tam = 10;//Capacidad predeterminada
 	this->can = 0;
 	this->especialidades = new Especialidad * [this->tam];
 }
 
+// Destructor de la clase EspecialidadContainer
 EspecialidadContainer::~EspecialidadContainer()
 {
-	for (int i = 0; i < this->can; i++){
+	for (int i = 0; i < this->can; i++) {//Elimina las especialidades
 		delete this->especialidades[i];
 	}
-	delete[] this->especialidades;
+	delete[] this->especialidades;//Elimina el arreglo de especialidades
 }
 
 bool EspecialidadContainer::agregarEspecialidad(Especialidad* especialidad)
@@ -22,8 +25,8 @@ bool EspecialidadContainer::agregarEspecialidad(Especialidad* especialidad)
 			return false;
 		}
 	}
-	if (can < tam){
-	especialidades[can++] = especialidad;
+	if (can < tam) {//Verifica que no se haya llegado a la capacidad máxima
+		this->especialidades[can++] = especialidad;
 	return true;
 	}
 	return false;
@@ -32,14 +35,14 @@ bool EspecialidadContainer::agregarEspecialidad(Especialidad* especialidad)
 Especialidad* EspecialidadContainer::getEspecialidad(std::string Name)
 {
 	for (int i = 0; i < this->can; i++){
-		if (this->especialidades[i]->getNombre() == Name){
-			return this->especialidades[i];
+		if (this->especialidades[i]->getNombre() == Name) {//Busca la especialidad por su nombre
+			return this->especialidades[i];//si la encuentra la retorna
 		}
 	}
-	return nullptr;
+	return nullptr;//Si no la encuentra retorna nullptr
 	
 }
-
+// Retorna una representación en string del contenedor
 std::string EspecialidadContainer::toString()
 {
 	std::stringstream ss;

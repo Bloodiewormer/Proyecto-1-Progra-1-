@@ -1,5 +1,6 @@
 #include "Menu.h"
 
+// Inicia el programa
 void Menu::inicioPrograma(Hospital* hos)
 {
 	int opcion = 0;
