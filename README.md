@@ -43,7 +43,7 @@ The system covers these functionalities:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/vet-hospital-management.git
+    git clone https://github.com/Bloodiewormer/vet-hospital-management.git
     ```
 
 2. Open the project in Visual Studio or your preferred C++ IDE.
